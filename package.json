@@ -1,0 +1,28 @@
+{
+  "name": "astroserver",
+  "version": "1.0.0",
+  "description": "AstroServer",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rish-0-0/astroserver.git"
+  },
+  "keywords": [
+    "Astrology",
+    "server"
+  ],
+  "author": "Rishabh Anand",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/rish-0-0/astroserver/issues"
+  },
+  "homepage": "https://github.com/rish-0-0/astroserver#readme",
+  "dependencies": {
+    "astroreha": "^1.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
