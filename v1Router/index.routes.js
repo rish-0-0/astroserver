@@ -21,7 +21,11 @@ router.post("/compatible", (req, res) => {
 router.post("/astrodetails", (req, res) => {
   try {
     const getBirthChart = astroreha.positioner.getBirthChart(
-      req.body.firstPerson
+      req.body.firstPerson.dateString,
+      req.body.firstPerson.timeString,
+      req.body.firstPerson.lat,
+      req.body.firstPerson.lng,
+      req.body.firstPerson.timezone
     );
     return res.status(200).send({
       message: "Here is your birthChart",
