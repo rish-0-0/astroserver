@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/rish-0-0/astroserver#readme",
   "dependencies": {
-    "astroreha": "^1.1.2",
+    "astroreha": "^1.1.3",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }
