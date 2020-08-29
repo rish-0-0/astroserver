@@ -32,6 +32,7 @@ router.post("/astrodetails", (req, res) => {
       nakshatra: astroreha.compatibility.calculateNakshatra(getBirthChart),
     });
   } catch (e) {
+    console.error(e);
     return res.status(500).send({
       success: false,
       message: "Invalid Data",
