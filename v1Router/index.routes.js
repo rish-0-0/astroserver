@@ -6,7 +6,7 @@ router.post("/compatible", (req, res) => {
       .status(200)
       .send({
         message: "Information parsed",
-        compatibility: astroreha.compatibility.areCompatibile(
+        compatibility: astroreha.compatibility.getCompatibilityScore(
           req.body.firstPerson,
           req.body.secondPerson
         ),
