@@ -18,12 +18,18 @@ router.post("/compatible", (req, res) => {
     });
   }
 });
-router.post("/birthchart", (req, res) => {
+router.post("/astrodetails", (req, res) => {
   try {
+    const getBirthChart = astroreha.positioner.getBirthChart(
+      req.body.firstPerson
+    );
     return res.status(200).send({
       message: "Here is your birthChart",
       success: true,
-      birthChart: astroreha.positioner.getBirthChart(req.body.firstPerson),
+      birthChart: getBirthChart,
+      houses: astroreha.compatibility.getHousesOfChart(getBirthChart),
+      navamsa: astroreha.positioner.getNavamsaChart(getBirthChart),
+      nakshatra: astroreha.compatibility.calculateNakshatra(getBirthChart),
     });
   } catch (e) {
     return res.status(500).send({
@@ -31,31 +37,6 @@ router.post("/birthchart", (req, res) => {
       message: "Invalid Data",
       e,
     });
-  }
-});
-
-router.post("/navamsa", (req, res) => {
-  try {
-  } catch (e) {
-    return res.status(500).send({
-      message: "Invalid data",
-      success: false,
-      navamsaChart: astroreha.positioner.getNavamsaChart(req.body.birthChart),
-    });
-  }
-});
-
-router.post("/nakshatra", (req, res) => {
-  try {
-    return res.status(200).send({
-      message: "Nakshatra",
-      success: true,
-      nakshatra: astroreha.compatibility.calculateNakshatra(
-        req.body.birthChart
-      ),
-    });
-  } catch (e) {
-    return res.status(500).send({ message: "Invalid data", success: false, e });
   }
 });
 
